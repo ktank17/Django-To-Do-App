@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib import messages
 
 from .models import *
 from .forms import *
@@ -15,6 +16,7 @@ def index(request):
 		form = TaskForm(request.POST)
 		if form.is_valid():
 			form.save()
+			messages.success(request,"Your Todo has been Saved")
 		return redirect('/')
 
 
@@ -30,6 +32,7 @@ def updateTask(request, pk):
 		form = TaskForm(request.POST, instance=task)
 		if form.is_valid():
 			form.save()
+			messages.success(request,"Your Todo has been Updated")
 			return redirect('/')
 
 	context = {'form':form}
@@ -40,7 +43,8 @@ def deleteTask(request, pk):
 	item = Task.objects.get(id=pk)
 
 	if request.method == 'POST':
-		item.delete()
+		item.delete
+		messages.success(request,"Your Todo has been Deleted")
 		return redirect('/')
 
 	context = {'item':item}
