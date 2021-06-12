@@ -1,7 +1,31 @@
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    
+    <center>{{ message }}</center>
+  
+    {% endfor %}
+</ul>
+{% endif %}
+
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <style>
 
+	.messages {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    background-color: white;
+    color: indigo;
+    font-family: cursive;
+	}
+
+	
+	
+	
+	
+	
+	
 	body{
 		background-color: black;
 	}
